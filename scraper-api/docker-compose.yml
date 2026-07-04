@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  scraper-api:
+  scraper:
     build: .
     container_name: scraper-api
     restart: unless-stopped

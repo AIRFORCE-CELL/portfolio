@@ -1,12 +1,10 @@
 version: "3.9"
 
 services:
-  discord-bot:
+  bot:
     build: .
     container_name: discord-bot
     restart: unless-stopped
     env_file:
       - .env
-    # 如果你需要持久化数据（如用户配置），取消注释：
-    # volumes:
-    #   - ./data:/app/data
+    # 无端口暴露 — Discord 通过 WebSocket 连接

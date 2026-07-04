@@ -1,4 +1,3 @@
-# Discord Bot SaaS Template
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -10,5 +9,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制源码
 COPY bot/ ./bot/
 
-# 运行
+# 以非 root 用户运行
+RUN useradd -m botuser
+USER botuser
+
 CMD ["python", "-m", "bot"]

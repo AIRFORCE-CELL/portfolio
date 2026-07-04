@@ -153,6 +153,31 @@
   }
   .cta-btn:hover { opacity: 0.9; }
 
+  .contact-info {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .contact-item a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+  .contact-icon {
+    font-size: 1.1rem;
+  }
+
   footer {
     text-align: center;
     padding: 40px 0;
@@ -252,13 +277,26 @@
   <div class="container">
     <h2>🚀 有想法？开始合作</h2>
     <p>告诉我你的需求，24 小时内给出方案和报价</p>
-    <a href="#" class="cta-btn">📩 联系我</a>
+    <div class="contact-links">
+      <a href="mailto:1653526777@QQ.com" class="cta-btn">📩 发送邮件</a>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <span>1653526777@QQ.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🐙</span>
+        <a href="https://github.com/AIRFORCE-CELL" target="_blank" rel="noopener">github.com/AIRFORCE-CELL</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
     <p>© 2026 — 独立开发者 | 远程接单 | 守时守信</p>
+    <p style="margin-top:8px; font-size:0.75rem;">所有报价为参考起价，实际价格根据需求复杂度浮动。不接违法违规项目。</p>
   </div>
 </footer>
 
