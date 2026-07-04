@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闲鱼商品展示图</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #1a1a2e;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px;
+  justify-content: center;
+  font-family: -apple-system, 'Microsoft YaHei', sans-serif;
+}
+
+.card {
+  width: 400px;
+  height: 400px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* 卡片 1: Discord — 蓝紫 */
+.card-1 {
+  background: linear-gradient(135deg, #1a0533 0%, #0d1b3e 40%, #162447 100%);
+  border: 1px solid rgba(88,101,242,0.3);
+}
+.card-1 .icon { font-size: 80px; margin-bottom: 20px; }
+.card-1 .title { color: #8ea1f0; }
+.card-1 .price { color: #a6e3a1; }
+.card-1 .tag { background: rgba(88,101,242,0.2); color: #8ea1f0; border: 1px solid rgba(88,101,242,0.3); }
+.card-1::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(88,101,242,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* 卡片 2: 爬虫 — 绿 */
+.card-2 {
+  background: linear-gradient(135deg, #0a1a0f 0%, #0d2b1a 40%, #113020 100%);
+  border: 1px solid rgba(166,227,161,0.3);
+}
+.card-2 .icon { font-size: 80px; margin-bottom: 20px; }
+.card-2 .title { color: #a6e3a1; }
+.card-2 .price { color: #a6e3a1; }
+.card-2 .tag { background: rgba(166,227,161,0.15); color: #a6e3a1; border: 1px solid rgba(166,227,161,0.3); }
+.card-2::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(166,227,161,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* 卡片 3: 网页 — 橙色 */
+.card-3 {
+  background: linear-gradient(135deg, #1a0f05 0%, #2b1a0a 40%, #3d1f0a 100%);
+  border: 1px solid rgba(250,179,135,0.3);
+}
+.card-3 .icon { font-size: 80px; margin-bottom: 20px; }
+.card-3 .title { color: #fab387; }
+.card-3 .price { color: #a6e3a1; }
+.card-3 .tag { background: rgba(250,179,135,0.15); color: #fab387; border: 1px solid rgba(250,179,135,0.3); }
+.card-3::before {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  right: -40%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(250,179,135,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* 卡片 4: Python — 青紫 */
+.card-4 {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1040 40%, #201845 100%);
+  border: 1px solid rgba(137,180,250,0.3);
+}
+.card-4 .icon { font-size: 80px; margin-bottom: 20px; }
+.card-4 .title { color: #89b4fa; }
+.card-4 .price { color: #a6e3a1; }
+.card-4 .tag { background: rgba(137,180,250,0.15); color: #89b4fa; border: 1px solid rgba(137,180,250,0.3); }
+.card-4::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(137,180,250,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 40px currentColor;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #a6adc8;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.tag {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.price-symbol {
+  color: #a6e3a1;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.price-num {
+  font-size: 42px;
+  font-weight: 900;
+  text-shadow: 0 0 30px rgba(166,227,161,0.3);
+}
+
+.price-unit {
+  color: #6c7086;
+  font-size: 14px;
+}
+
+.bottom-line {
+  position: absolute;
+  bottom: 30px;
+  font-size: 11px;
+  color: #585b70;
+  letter-spacing: 3px;
+}
+
+/* 角标 */
+.badge-new {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #f38ba8, #eba0ac);
+  color: #1a1a2e;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 12px;
+  letter-spacing: 1px;
+}
+
+.badge-fast {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255,255,255,0.08);
+  color: #a6adc8;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 分割线 */
+.divider {
+  width: 40px;
+  height: 2px;
+  border-radius: 1px;
+  margin: 0 auto 20px;
+}
+.card-1 .divider { background: rgba(88,101,242,0.5); }
+.card-2 .divider { background: rgba(166,227,161,0.5); }
+.card-3 .divider { background: rgba(250,179,135,0.5); }
+.card-4 .divider { background: rgba(137,180,250,0.5); }
+
+</style>
+</head>
+<body>
+
+<!-- 卡片 1: Discord Bot -->
+<div class="card card-1">
+  <div class="badge-new">NEW</div>
+  <div class="badge-fast">⚡ 当天交付</div>
+  <div class="icon">🤖</div>
+  <div class="title">Discord 机器人</div>
+  <div class="divider"></div>
+  <div class="subtitle">AI 智能对话 · 自动审核 · 社群管理</div>
+  <div class="tags">
+    <span class="tag">AI 聊天</span>
+    <span class="tag">自动欢迎</span>
+    <span class="tag">投票系统</span>
+  </div>
+  <div class="price-box">
+    <span class="price-symbol">¥</span>
+    <span class="price-num">88</span>
+    <span class="price-unit">起</span>
+  </div>
+  <div class="bottom-line">提供源码 · 包教包会</div>
+</div>
+
+<!-- 卡片 2: 数据采集 -->
+<div class="card card-2">
+  <div class="badge-new">HOT</div>
+  <div class="badge-fast">⚡ 1小时交付</div>
+  <div class="icon">🕷️</div>
+  <div class="title">网页数据采集</div>
+  <div class="divider"></div>
+  <div class="subtitle">任意网页抓取 · Excel 导出 · 定时自动</div>
+  <div class="tags">
+    <span class="tag">价格监控</span>
+    <span class="tag">新闻抓取</span>
+    <span class="tag">JSON 输出</span>
+  </div>
+  <div class="price-box">
+    <span class="price-symbol">¥</span>
+    <span class="price-num">68</span>
+    <span class="price-unit">起</span>
+  </div>
+  <div class="bottom-line">一键运行 · 30 天售后</div>
+</div>
+
+<!-- 卡片 3: 个人主页 -->
+<div class="card card-3">
+  <div class="badge-new">精品</div>
+  <div class="badge-fast">⚡ 当天上线</div>
+  <div class="icon">🌐</div>
+  <div class="title">个人主页制作</div>
+  <div class="divider"></div>
+  <div class="subtitle">响应式设计 · 深色科技风 · 免费托管</div>
+  <div class="tags">
+    <span class="tag">手机适配</span>
+    <span class="tag">源码交付</span>
+    <span class="tag">永久在线</span>
+  </div>
+  <div class="price-box">
+    <span class="price-symbol">¥</span>
+    <span class="price-num">88</span>
+    <span class="price-unit">起</span>
+  </div>
+  <div class="bottom-line">GitHub Pages 免费托管</div>
+</div>
+
+<!-- 卡片 4: Python 脚本 -->
+<div class="card card-4">
+  <div class="badge-new">爆款</div>
+  <div class="badge-fast">⚡ 30分钟交付</div>
+  <div class="icon">🐍</div>
+  <div class="title">Python 自动化</div>
+  <div class="divider"></div>
+  <div class="subtitle">Excel 处理 · 文件批处理 · 办公自动化</div>
+  <div class="tags">
+    <span class="tag">表格合并</span>
+    <span class="tag">文件改名</span>
+    <span class="tag">数据清洗</span>
+  </div>
+  <div class="price-box">
+    <span class="price-symbol">¥</span>
+    <span class="price-num">50</span>
+    <span class="price-unit">起</span>
+  </div>
+  <div class="bottom-line">抄底价 · 首单再减 10 元</div>
+</div>
+
+</body>
+</html>
