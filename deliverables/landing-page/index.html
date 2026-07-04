@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全栈开发 | AI 自动化 | 接单服务</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card: #111118;
+    --border: #1e1e2e;
+    --text: #cdd6f4;
+    --muted: #6c7086;
+    --accent: #89b4fa;
+    --green: #a6e3a1;
+    --orange: #fab387;
+    --red: #f38ba8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .badge-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .badge.python { border-color: #4584b6; color: #4584b6; }
+  .badge.node { border-color: #68a063; color: #68a063; }
+  .badge.ai { border-color: var(--accent); color: var(--accent); }
+  .badge.bot { border-color: #5865F2; color: #5865F2; }
+
+  /* Services */
+  .services {
+    padding: 80px 0;
+  }
+  .services h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 48px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  .card .icon { font-size: 2rem; margin-bottom: 16px; }
+  .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+  .card .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .card .price span { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
+
+  /* Tech Stack */
+  .stack {
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+  }
+  .stack h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+  .stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    justify-content: center;
+  }
+  .stack-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--card);
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot.python { background: #4584b6; }
+  .dot.node { background: #68a063; }
+  .dot.docker { background: #1d63ed; }
+  .dot.ai { background: var(--accent); }
+  .dot.db { background: var(--orange); }
+
+  /* CTA */
+  .cta {
+    padding: 80px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .cta h2 { font-size: 2rem; margin-bottom: 16px; }
+  .cta p { color: var(--muted); margin-bottom: 32px; }
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 48px;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+
+  .contact-info {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .contact-item a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+  .contact-icon {
+    font-size: 1.1rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <h1>AI 驱动的全栈开发</h1>
+    <p>Python / Node.js 全栈开发 + AI 自动化。快速交付，质量保证，一口价透明。</p>
+    <div class="badge-row">
+      <span class="badge python">🐍 Python 全栈</span>
+      <span class="badge node">🟢 Node.js</span>
+      <span class="badge ai">🤖 AI 自动化</span>
+      <span class="badge bot">💬 Discord/微信机器人</span>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <h2>🛠️ 服务项目</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>Discord / Telegram 机器人</h3>
+        <p>定制社群机器人：自动管理、AI 对话、数据统计、NFT/Web3 集成、游戏化系统</p>
+        <div class="price">¥500 - ¥3,000 <span>/ 起</span></div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🕷️</div>
+        <h3>数据采集 & 分析</h3>
+        <p>电商竞品监控、社媒舆情分析、自动化报表。支持定时任务 + 数据可视化</p>
+        <div class="price">¥800 - ¥5,000 <span>/ 起</span></div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Web 应用 & API 开发</h3>
+        <p>FastAPI / Express 后端，React / Vue 前端，RESTful API，数据库设计，Docker 部署</p>
+        <div class="price">¥2,000 - ¥15,000 <span>/ 起</span></div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>AI 集成 & 自动化</h3>
+        <p>接入 GPT/Claude API，RAG 知识库，本地模型部署，自动化工作流，智能客服</p>
+        <div class="price">¥1,500 - ¥8,000 <span>/ 起</span></div>
+      </div>
+
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Notion / Airtable 自动化</h3>
+        <p>工作流搭建、数据库设计、自动化脚本、第三方集成、团队协作系统</p>
+        <div class="price">¥500 - ¥3,000 <span>/ 起</span></div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h3>技术咨询 & 代码审查</h3>
+        <p>架构设计、性能优化、代码重构、安全审计、技术方案评估</p>
+        <div class="price">¥300 <span>/ 小时</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="stack">
+  <div class="container">
+    <h2>⚡ 技术栈</h2>
+    <div class="stack-grid">
+      <div class="stack-item"><span class="dot python"></span> Python / FastAPI</div>
+      <div class="stack-item"><span class="dot node"></span> Node.js / Express</div>
+      <div class="stack-item"><span class="dot docker"></span> Docker / K8s</div>
+      <div class="stack-item"><span class="dot ai"></span> OpenAI / Claude API</div>
+      <div class="stack-item"><span class="dot db"></span> PostgreSQL / Redis</div>
+      <div class="stack-item"><span class="dot python"></span> Discord.py / Aiogram</div>
+      <div class="stack-item"><span class="dot node"></span> React / Vue</div>
+      <div class="stack-item"><span class="dot ai"></span> LangChain / RAG</div>
+      <div class="stack-item"><span class="dot docker"></span> AWS / Vercel 部署</div>
+      <div class="stack-item"><span class="dot python"></span> Selenium / Playwright</div>
+      <div class="stack-item"><span class="dot ai"></span> Stable Diffusion</div>
+      <div class="stack-item"><span class="dot db"></span> Notion / Airtable API</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>🚀 有想法？开始合作</h2>
+    <p>告诉我你的需求，24 小时内给出方案和报价</p>
+    <div class="contact-links">
+      <a href="mailto:1653526777@QQ.com" class="cta-btn">📩 发送邮件</a>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <span>1653526777@QQ.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🐙</span>
+        <a href="https://github.com/AIRFORCE-CELL" target="_blank" rel="noopener">github.com/AIRFORCE-CELL</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 — 独立开发者 | 远程接单 | 守时守信</p>
+    <p style="margin-top:8px; font-size:0.75rem;">所有报价为参考起价，实际价格根据需求复杂度浮动。不接违法违规项目。</p>
+  </div>
+</footer>
+
+</body>
+</html>

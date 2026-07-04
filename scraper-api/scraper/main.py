@@ -10,13 +10,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from scraper.config import Settings
 from scraper.routes import router
-from scraper.scheduler import Scheduler
+from scraper.scheduler import scheduler
 
 log = logging.getLogger("scraper")
 
 # ── 生命周期 ────────────────────────────────────
-
-scheduler = Scheduler()
 
 
 @asynccontextmanager

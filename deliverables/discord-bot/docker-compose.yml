@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  bot:
+    build: .
+    container_name: discord-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    # 无端口暴露 — Discord 通过 WebSocket 连接

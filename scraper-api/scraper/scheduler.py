@@ -45,3 +45,7 @@ class Scheduler:
             self._scheduler.remove_job(self._tasks[job_id])
             del self._tasks[job_id]
             log.info(f"🗑️ 已移除定时任务: {job_id}")
+
+
+# 全局调度器实例
+scheduler = Scheduler()
